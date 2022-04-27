@@ -102,5 +102,6 @@ fun printFee(type: String = "Vk Pay", amount: Int, total: Int = 0, fee: Int): Bo
 }
 
 fun centFormat(amount: Int): String {
-    return if (amount % 100 > 0) "${amount / 100}.${amount % 100}" else "${amount / 100}"
+    return if (amount % 100 > 0) "${amount / 100}.${if ((amount % 100) / 10 > 0) "" else "0"}" +
+            "${amount % 100}" else "${amount / 100}"
 }
